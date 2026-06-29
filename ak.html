@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BattleX Toys</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#07111f;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#38bdf8;
+    border-radius:20px;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:32px;
+    font-family:'Orbitron',sans-serif;
+    font-weight:700;
+    color:#38bdf8;
+    letter-spacing:2px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:30px;
+    transition:0.3s;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1400&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:85px;
+    font-family:'Orbitron',sans-serif;
+    color:#38bdf8;
+    margin-bottom:20px;
+    text-shadow:0 0 20px #38bdf8;
+}
+
+.hero p{
+    font-size:22px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.hero-buttons a{
+    display:inline-block;
+    padding:16px 40px;
+    margin:10px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:#38bdf8;
+    color:black;
+}
+
+.btn-primary:hover{
+    background:white;
+    transform:translateY(-5px);
+}
+
+.btn-secondary{
+    border:2px solid #38bdf8;
+    color:#38bdf8;
+}
+
+.btn-secondary:hover{
+    background:#38bdf8;
+    color:black;
+}
+
+/* FEATURES */
+
+.features{
+    padding:100px 8%;
+    background:#0b1727;
+}
+
+.section-title{
+    text-align:center;
+    font-size:50px;
+    margin-bottom:70px;
+    font-family:'Orbitron',sans-serif;
+    color:#38bdf8;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.feature-box{
+    background:#111c2d;
+    padding:40px 30px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.feature-box:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(56,189,248,0.3);
+}
+
+.feature-box h3{
+    margin:20px 0;
+    color:#38bdf8;
+    font-size:25px;
+}
+
+.feature-box p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+.feature-icon{
+    font-size:60px;
+}
+
+/* PRODUCTS */
+
+.products{
+    padding:100px 8%;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+
+.product-card{
+    background:#111827;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+    position:relative;
+}
+
+.product-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 10px 30px rgba(56,189,248,0.25);
+}
+
+.product-card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+}
+
+.product-content{
+    padding:25px;
+}
+
+.product-content h3{
+    font-size:28px;
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+.product-content p{
+    color:#d1d5db;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.price{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.buy-btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#38bdf8;
+    color:black;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.buy-btn:hover{
+    background:white;
+}
+
+/* BANNER */
+
+.banner{
+    padding:120px 8%;
+    background:
+    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
+    url('https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1400&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+    text-align:center;
+}
+
+.banner h2{
+    font-size:60px;
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.banner p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+    font-size:20px;
+}
+
+/* GALLERY */
+
+.gallery{
+    padding:100px 8%;
+    background:#0b1727;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:18px;
+    transition:0.4s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.05);
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+    padding:100px 8%;
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.testimonial-box{
+    background:#111827;
+    padding:35px;
+    border-radius:20px;
+}
+
+.testimonial-box p{
+    line-height:1.8;
+    color:#d1d5db;
+    margin-bottom:20px;
+}
+
+.testimonial-box h4{
+    color:#38bdf8;
+}
+
+/* CONTACT */
+
+.contact{
+    padding:100px 8%;
+    background:#0b1727;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:40px;
+}
+
+.contact-form{
+    background:#111827;
+    padding:40px;
+    border-radius:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:20px;
+    border:none;
+    border-radius:10px;
+    background:#1f2937;
+    color:white;
+}
+
+.contact-form button{
+    width:100%;
+    padding:15px;
+    background:#38bdf8;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.contact-text h3{
+    font-size:40px;
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.contact-text p{
+    line-height:1.8;
+    color:#cbd5e1;
+}
+
+/* FOOTER */
+
+footer{
+    background:#020617;
+    padding:30px;
+    text-align:center;
+    color:#94a3b8;
+}
+
+/* RESPONSIVE */
+
+/* DESKTOP SHOWCASE */
+
+.desktop-showcase{
+    padding:100px 8%;
+    background:#111827;
+}
+
+.desktop-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.desktop-image img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(56,189,248,0.25);
+}
+
+.desktop-text h2{
+    font-size:50px;
+    color:#38bdf8;
+    margin-bottom:20px;
+    font-family:'Orbitron',sans-serif;
+}
+
+.desktop-text p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+.desktop-btn{
+    display:inline-block;
+    padding:14px 30px;
+    background:#38bdf8;
+    color:black;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.desktop-btn:hover{
+    background:white;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+    font-size:50px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.section-title{
+    font-size:38px;
+}
+
+.banner h2{
+    font-size:40px;
+}
+
+nav{
+    display:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">BattleX Toys</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>ULTIMATE ACTION TOYS</h1>
+
+<p>
+Discover futuristic foam dart blasters, battle sets, racing toys,
+and adventure collections designed for excitement and fun.
+</p>
+
+<div class="hero-buttons">
+    <a href="#products" class="btn-primary">Explore Toys</a>
+    <a href="#gallery" class="btn-secondary">View Gallery</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<h2 class="section-title">WHY KIDS LOVE US</h2>
+
+<div class="feature-grid">
+
+<div class="feature-box">
+<div class="feature-icon">🚀</div>
+<h3>Futuristic Design</h3>
+<p>Modern action toys with stylish battle themes and exciting adventure looks.</p>
+</div>
+
+<div class="feature-box">
+<div class="feature-icon">🎮</div>
+<h3>Gaming Inspired</h3>
+<p>Inspired by action games and battle arenas for a cool experience.</p>
+</div>
+
+<div class="feature-box">
+<div class="feature-icon">⚡</div>
+<h3>Premium Quality</h3>
+<p>Strong materials and detailed finishing for long-lasting fun.</p>
+</div>
+
+<div class="feature-box">
+<div class="feature-icon">🔥</div>
+<h3>Trending Toys</h3>
+<p>Popular toys loved by kids who enjoy adventure and racing excitement.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+<h2 class="section-title">TOP COLLECTION</h2>
+
+<div class="product-grid">
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?q=80&w=1200&auto=format&fit=crop">
+<div class="product-content">
+<h3>Foam Dart Blaster</h3>
+<p>Advanced toy blaster with soft foam darts, tactical style and LED effects.</p>
+<div class="price">₹1,999</div>
+<a href="#" class="buy-btn">Buy Now</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?q=80&w=1200&auto=format&fit=crop">
+<div class="product-content">
+<h3>Racing Beast Car</h3>
+<p>Remote control racing car with turbo speed and drifting action features.</p>
+<div class="price">₹2,499</div>
+<a href="#" class="buy-btn">Buy Now</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1200&auto=format&fit=crop">
+<div class="product-content">
+<h3>Battle Warrior Kit</h3>
+<p>Adventure battle set with accessories for exciting gameplay moments.</p>
+<div class="price">₹3,299</div>
+<a href="#" class="buy-btn">Buy Now</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- BANNER -->
+
+<section class="banner">
+<h2>LEVEL UP YOUR FUN</h2>
+<p>
+Explore premium toy collections inspired by futuristic adventures, action games,
+and thrilling battle experiences for kids.
+</p>
+</section>
+
+<!-- DESKTOP SHOWCASE -->
+
+<section class="desktop-showcase">
+
+<div class="desktop-container">
+
+<div class="desktop-image">
+<img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=1200&auto=format&fit=crop" alt="Gaming Setup">
+</div>
+
+<div class="desktop-text">
+<h2>EPIC DESKTOP GAMING STYLE</h2>
+
+<p>
+BattleX Toys is inspired by modern gaming setups and futuristic desktop battle arenas.
+Enjoy exciting action toys with a premium gaming experience and stylish adventure themes.
+</p>
+
+<p>
+Our collections are designed for kids who love gaming aesthetics, racing action,
+and futuristic toy adventures.
+</p>
+
+<a href="#products" class="desktop-btn">Shop Collection</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+<h2 class="section-title">TOY GALLERY</h2>
+
+<div class="gallery-grid">
+
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials" id="reviews">
+
+<h2 class="section-title">CUSTOMER REVIEWS</h2>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-box">
+<p>
+“The design is amazing and the toy quality feels premium. Kids absolutely loved it!”
+</p>
+<h4>- Aarav Sharma</h4>
+</div>
+
+<div class="testimonial-box">
+<p>
+“Very modern website and exciting products. Perfect for action toy lovers.”
+</p>
+<h4>- Kabir Verma</h4>
+</div>
+
+<div class="testimonial-box">
+<p>
+“The racing car collection is awesome and delivery was super fast.”
+</p>
+<h4>- Vihaan Gupta</h4>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<h2 class="section-title">CONTACT US</h2>
+
+<div class="contact-container">
+
+<div class="contact-text">
+<h3>BattleX Toys</h3>
+<p>
+We create exciting action toy experiences with modern futuristic designs.
+Our goal is to make gaming-inspired toys more fun and adventurous.
+</p>
+</div>
+
+<div class="contact-form">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="5" placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 BattleX Toys | Designed for Modern Toy Adventures</p>
+</footer>
+
+</body>
+</html>
